@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<meta content="utf-8">
+	<title>温湿度和led面板</title>
+</head>
+<body>
+	<p id="temperature">加载温度。。。</p>
+	<p id="humidity">加载湿度。。。</p>
+	<button id="light_on">点亮</button>
+	<button id="light_off">熄灭</button>
+	<script src="/node_modules/jquery/dist/jquery.js"></script>
+	<script src="/public/js/script.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>温湿度和LED面板</title>
+  </head>
+
+  <body>
+    <header class="card-header text-center"><h1>控制面板</h1></header>
+    <div class="container">     
+        <div class="row">
+          <div class="col-md">
+            <div class="card text-center text-white bg-info" style="margin-top: 15px;">
+              <div class="card-header">
+                温度
+              </div>
+              <div class="card-body">
+                <h5 id="temperature" class="card-title text-center">加载温度...</h5>
+              </div>
+              <div class="card-footer text-white">
+                ℃
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card text-center text-white bg-success" style="margin-top: 15px;">
+              <div class="card-header">
+                湿度
+              </div>
+              <div class="card-body">
+                <h5 id="humidity" class="card-title text-center">加载湿度...</h5>
+              </div>
+              <div class="card-footer text-white">
+                %
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card text-center" style="margin-top: 15px;" >
+              <div class="card-header">
+                LED控制区
+              </div>
+              <div class="card-body">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button id="light_on" type="button" class="btn btn-primary">点亮</button>
+                  <button id="light_off" type="button" class="btn btn-primary">熄灭</button>
+                </div>
+              </div>
+              <div class="card-footer text-muted text-center">
+                <h5 id="light_info"></h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+    <!--  JavaScript -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+
+</html>
