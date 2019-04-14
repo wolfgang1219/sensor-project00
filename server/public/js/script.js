@@ -14,10 +14,11 @@ $(document).ready(function() {
 				$("#humidity").text(data);
 			})
 			.catch(e => console.log("Oops, error", e))
-	};
+	}
 	$("#light_on").click(() => {
 		fetch('/on').then(response => response.text())
 			.then(data => {
+				$("#light_info").text(data);
 				console.log(data);
 			})
 			.catch(e => console.log("Oops, error", e))
@@ -25,6 +26,7 @@ $(document).ready(function() {
 	$("#light_off").click(() => {
 		fetch('/off').then(response => response.text())
 			.then(data => {
+				$("#light_info").text(data);
 				console.log(data);
 			})
 			.catch(e => console.log("Oops, error", e))
@@ -34,5 +36,4 @@ $(document).ready(function() {
 		fetch_humidity();
 		fetch_temperature();
 	}, 2000)
-	
 });
