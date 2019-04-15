@@ -1,5 +1,7 @@
 var express = require("express")
 var router = express.Router()
+const get_cached_readings = require("/public/js/get_cached_readings");
+const light_control=require("public/js/light-control");
 
 router.get('/', function (req, res) {
   // 重定向到登录页

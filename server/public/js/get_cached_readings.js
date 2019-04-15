@@ -1,4 +1,4 @@
-const get_sensor_readings=require("./get-reading");
+const get_sensor_readings=require("/public/js/get-reading");
 const cached_readings={temperature:0,humidity:0};
 //dht11数字温湿度传感器的采样周期要大于等于2秒
 setInterval(()=>{
