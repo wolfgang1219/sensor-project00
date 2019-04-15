@@ -1,17 +1,17 @@
 $(document).ready(function() {
 	const fetch_temperature = () => {
-		fetch('/temperature').then(response => response.text())
+		fetch('/temperature').then(response => response.json())
 			.then(data => {
-				console.log(data);
-				$("#temperature").text(data);
+				console.log(data.val);
+				$("#temperature").text(data.val);
 			})
 			.catch(e => console.log("Oops, error", e))
 	};
 	const fetch_humidity = () => {
-		fetch('/humidity').then(response => response.text())
+		fetch('/humidity').then(response => response.json())
 			.then(data => {
-				console.log(data);
-				$("#humidity").text(data);
+				console.log(data.val);
+				$("#humidity").text(data.val);
 			})
 			.catch(e => console.log("Oops, error", e))
 	}
