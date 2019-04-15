@@ -43,4 +43,47 @@ router.post('/Login', function(req, res){
     }
 })
 
+
+router.get("/temperature", function(req, res){
+  let my_temperature = get_cached_readings.get_temperature();
+  //console.log(my_temperature);
+  if(req.session.user)
+    res.json({val:my_temperature});
+  else
+    res.send('请先登录后再进行操作!')
+  
+});
+router.get("/humidity", function(req, res){
+  let my_humidity = get_cached_readings.get_humidity();
+  //console.log(my_humidity);
+  if(req.session.user)
+    res.json({val:my_humidity})
+  else
+    res.send('请先登录后再进行操作!')
+  
+});
+
+router.get("/on", function(req, res){
+  if(req.session.user)
+  {
+    light_control.on();
+  res.send("light is on")
+  console.log("light is on");
+  }
+  else
+    res.send('请先登录后再进行操作!')
+  
+});
+router.get("/off", function(req, res){
+  if(req.session.user)
+  {
+    light_control.off();
+    res.send("light is off");
+    console.log("light is off");
+  }
+  else
+    res.send('请先登录后再进行操作!')
+  
+});
+
 module.exports = router
