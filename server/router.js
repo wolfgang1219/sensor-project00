@@ -51,13 +51,11 @@ router.get("/temperature", function(req, res){
   //console.log(my_temperature);
   if(my_temperature > 28)
   {
-    fan_control.on();
-    res.send("fan is on")
+    fan_control.on()
   }
   else
   {
-    fan_control.off();
-    res.send("fan is off")
+    fan_control.off()
   }
 
   if(req.session.user)
