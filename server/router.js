@@ -17,7 +17,7 @@ router.get('/index', function(req, res){
 })
 
 router.get('/Login', function(req, res){
-  console.log(req.session.user)
+  //console.log(req.session.user)
   res.render('Login.html');
 })
 
@@ -48,8 +48,8 @@ router.post('/Login', function(req, res){
 
 router.get("/temperature", function(req, res){
   var my_temperature = get_cached_readings.get_temperature();
-  //console.log(my_temperature);
-  if(my_temperature > 28)
+  console.log(my_temperature);
+  if(my_temperature > 30)
   {
     fan_control.on()
   }
