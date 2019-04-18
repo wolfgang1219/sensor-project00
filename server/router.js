@@ -49,7 +49,7 @@ router.post('/Login', function(req, res){
 router.get("/temperature", function(req, res){
   var my_temperature = get_cached_readings.get_temperature();
   console.log(my_temperature);
-  if(my_temperature > 30)
+  if(my_temperature >= 30)
   {
     fan_control.on()
   }
@@ -66,7 +66,7 @@ router.get("/temperature", function(req, res){
 
 router.get("/humidity", function(req, res){
   var my_humidity = get_cached_readings.get_humidity();
-  //console.log(my_humidity);
+  console.log(my_humidity);
   if(req.session.user)
     res.json({val:my_humidity})
   else
