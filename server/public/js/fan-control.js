@@ -1,11 +1,11 @@
 const Gpio = require('onoff').Gpio;
 const fan = new Gpio(22, 'out');
 const fan_control_on =()=>{
-  led.writeSync(1);
+  fan.writeSync(1);
   return 1
 }
 const fan_control_off =()=>{
-  led.writeSync(0);
+  fan.writeSync(0);
   return 0
 }
 
