@@ -1,7 +1,8 @@
-var express = require("express")
-var router = express.Router()
+const express = require("express")
+const router = express.Router()
 const get_cached_readings = require("./public/js/get_cached_readings");
 const light_control=require("./public/js/light-control");
+const fan_control=require("./public/js/fan-control");
 
 router.get('/', function (req, res) {
   // 重定向到登录页
@@ -34,7 +35,6 @@ router.post('/Login', function(req, res){
       message: 'OK'
     })
     }
-
   else
     {
       // 邮箱或者昵称已存在
@@ -47,35 +47,47 @@ router.post('/Login', function(req, res){
 
 
 router.get("/temperature", function(req, res){
-  let my_temperature = get_cached_readings.get_temperature();
+  var my_temperature = get_cached_readings.get_temperature();
   //console.log(my_temperature);
+  if(my_temperature > 25)
+  {
+    fan_control.on();
+    res.send("fan is on")
+    console.log("fan is on");
+  }
+  else
+  {
+    fan_control.off();
+    res.send("fan is off")
+    console.log("fan is off");
+  }
+
   if(req.session.user)
     res.json({val:my_temperature});
   else
     res.send('请先登录后再进行操作!')
-  
-});
+})
+
 router.get("/humidity", function(req, res){
-  let my_humidity = get_cached_readings.get_humidity();
+  var my_humidity = get_cached_readings.get_humidity();
   //console.log(my_humidity);
   if(req.session.user)
     res.json({val:my_humidity})
   else
-    res.send('请先登录后再进行操作!')
-  
-});
+    res.send('请先登录后再进行操作!') 
+})
 
 router.get("/on", function(req, res){
   if(req.session.user)
   {
     light_control.on();
-  res.send("light is on")
-  console.log("light is on");
+    res.send("light is on")
+    console.log("light is on");
   }
   else
-    res.send('请先登录后再进行操作!')
-  
-});
+    res.send('请先登录后再进行操作!') 
+})
+
 router.get("/off", function(req, res){
   if(req.session.user)
   {
@@ -84,8 +96,7 @@ router.get("/off", function(req, res){
     console.log("light is off");
   }
   else
-    res.send('请先登录后再进行操作!')
-  
-});
+    res.send('请先登录后再进行操作!')  
+})
 
 module.exports = router

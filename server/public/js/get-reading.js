@@ -11,6 +11,5 @@ const get_sensor_readings=(callback)=>{
 	});
 }
 
-
 //将函数导出
 module.exports=get_sensor_readings;
