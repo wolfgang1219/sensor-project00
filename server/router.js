@@ -49,17 +49,15 @@ router.post('/Login', function(req, res){
 router.get("/temperature", function(req, res){
   var my_temperature = get_cached_readings.get_temperature();
   //console.log(my_temperature);
-  if(my_temperature > 25)
+  if(my_temperature > 28)
   {
     fan_control.on();
-    //res.send("fan is on")
-    console.log("fan is on");
+    res.send("fan is on")
   }
   else
   {
     fan_control.off();
-    //res.send("fan is off")
-    console.log("fan is off");
+    res.send("fan is off")
   }
 
   if(req.session.user)
