@@ -28,10 +28,10 @@ router.post('/Login', function(req, res){
   // 1. 获取表单数据
   // 2. 查询数据库用户名密码是否正确
   // 3. 发送响应数据
-  username = md5.update(body.username).digest('hex')
-  password = md5.update(body.password).digest('hex')
-  userName = md5.update('admin').digest('hex')
-  passWord = md5.update('admin').digest('hex')
+  var username = md5.update(body.username).digest('hex')
+  var password = md5.update(body.password).digest('hex')
+  var userName = md5.update('admin').digest('hex')
+  var passWord = md5.update('admin').digest('hex')
 
   var body = req.body
   if (username === userName && password === passWord) {
