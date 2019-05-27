@@ -28,14 +28,14 @@ router.post('/Login', function(req, res){
   // 1. 获取表单数据
   // 2. 查询数据库用户名密码是否正确
   // 3. 发送响应数据
-  body.username = md5.update(body.username).digest('hex')
-  body.password = md5.update(body.password).digest('hex')
+  username = md5.update(body.username).digest('hex')
+  password = md5.update(body.password).digest('hex')
   userName = md5.update('admin').digest('hex')
   passWord = md5.update('admin').digest('hex')
 
   var body = req.body
-  if (body.username === userName && body.password === passWord) {
-    console.log("用户名'admin'\nMD5："+body.username)
+  if (username === userName && password === passWord) {
+    console.log("用户名'admin'\nMD5："+username)
     // 登录成功，使用 Session 记录用户的登陆状态
     req.session.user = true
 
