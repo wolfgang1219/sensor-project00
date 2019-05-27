@@ -30,7 +30,7 @@ router.post('/Login', function(req, res){
   // 3. 发送响应数据
   var body = req.body
   if (body.username === 'admin' && body.password === 'admin') {
-    a = md5("admin")
+    a = result = md5.update('admin').digest('hex');
     console.log(a)
     // 登录成功，使用 Session 记录用户的登陆状态
     req.session.user = true
