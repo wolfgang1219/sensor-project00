@@ -1,11 +1,9 @@
 const express = require("express")
-const crypto = require('crypto')
 const get_cached_readings = require("./public/js/get_cached_readings");
 const light_control=require("./public/js/light-control");
 const fan_control=require("./public/js/fan-control");
 
 const router = express.Router()
-const md5 = crypto.createHash('md5')
 
 router.get('/', function (req, res) {
   // 重定向到登录页
@@ -30,9 +28,7 @@ router.post('/Login', function(req, res){
   // 3. 发送响应数据
 
   var body = req.body
-  if (md5.update(body.username).digest('hex') === md5.update('admin').digest('hex') && 
-    md5.update(body.password).digest('hex') === md5.update('admin').digest('hex')) {
-    console.log("用户名'admin'\nMD5：" + md5.update(body.username).digest('hex'))
+  if (body.username === 'admin' && body.password === 'admin') {
     // 登录成功，使用 Session 记录用户的登陆状态
     req.session.user = true
 
