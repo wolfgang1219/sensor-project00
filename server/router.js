@@ -1,11 +1,9 @@
 const express = require("express")
-const crypto = require('crypto')
 const get_cached_readings = require("./public/js/get_cached_readings");
 const light_control=require("./public/js/light-control");
 const fan_control=require("./public/js/fan-control");
 
 const router = express.Router()
-const md5 = crypto.createHash('md5')
 
 router.get('/', function (req, res) {
   // 重定向到登录页
