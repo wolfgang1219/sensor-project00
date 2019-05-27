@@ -27,7 +27,7 @@ router.post('/Login', function(req, res){
   // 2. 查询数据库用户名密码是否正确
   // 3. 发送响应数据
   var body = req.body
-  if (body.username === 'admin' && body.password === 'admin' {
+  if (body.username === 'admin' && body.password === 'admin') {
     // 登录成功，使用 Session 记录用户的登陆状态
     req.session.user = true
 
